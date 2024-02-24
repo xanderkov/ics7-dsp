@@ -1,12 +1,12 @@
 % Исходные параметры
-sigma = 5;
+sigma = 2;
 tt = 2;
 
 % Дискретные сигналы
 n = 100;
 dt = 0.1;
 t_max = dt*(n-1)/2;
-t = -t_max:dt:t_max; 
+t = -t_max:dt:t_max;
 
 gauss_discrete = exp(-(t/sigma).^2);
 rect_discrete = zeros(size(t));
