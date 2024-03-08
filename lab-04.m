@@ -74,3 +74,5 @@ function y = gaussian_filter_low(sigma, size)
 	y = exp(-x.^2 / (2 * sigma^2));
 	y = y / sum(y);
 end
+
+lab04()

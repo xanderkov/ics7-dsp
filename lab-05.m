@@ -73,3 +73,6 @@ function lab05
 		y = 1 - exp(-x.^2 / (2 * sigma^2));
 		y = y / sum(y);
 	end
+
+
+lab05()
