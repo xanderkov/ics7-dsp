@@ -35,16 +35,19 @@ function lab05
 
 	figure(3);
 
-	plot_figure(1, t, x0, x1, x2, 'Исходные сигналы')
-	plot_figure(2, t, x0, x1 - filtfilt(G, 1, x1), x2 - filtfilt(G, 1, x2), 'Фильтр Гаусса')
-	plot_figure(3, t, x0, x1 - filtfilt(B, 1, x1), x2 - filtfilt(B, 1, x2), 'Фильтр Баттеруорта')
+  plot_figure(1, t, x0, x1, 'Исходные сигналы')
+  plot_figure(2, t, x0, x1 - filtfilt(G, 1, x1), 'Фильтр Гаусса Гауссовы помехи')
+	plot_figure(3, t, x0,  x1 - filtfilt(B, 1, x1), 'Фильтр Баттерворта Гауссовы помехи')
+
+  plot_figure(4, t, x0,  x2 - filtfilt(G, 1, x2), 'Фильтр Гаусса Импульсные')
+	plot_figure(5, t, x0,  x2 - filtfilt(B, 1, x2), 'Фильтр Баттерворта Импульсные')
 	end
 
-	function plot_figure(i, t, x0, x1, x2, tit)
-		subplot(3, 1, i);
-		plot(t, x0, t, x1, t, x2);
+	function plot_figure(i, t, x0, x1, tit)
+		subplot(5, 1, i);
+		plot(t, x0, t, x1);
 		title(tit);
-		legend('Без помех', 'Гауссовы помехи', 'Импульсные помехи');
+		legend('Без помех', 'Помехи');
 	end
 
 	% Gaussian pulse generation

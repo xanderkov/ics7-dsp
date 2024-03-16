@@ -33,18 +33,21 @@ function lab04
 	G = gaussian_filter_low(4, 20);
 	B = butterworth_filter_low(6, 20);
 
-    figure(3);
+  figure(6);
 
 	plot_figure(1, t, x0, x1, x2, 'Исходные сигналы')
-	plot_figure(2, t, x0, filtfilt(G, 1, x1), filtfilt(G, 1, x2), 'Фильтр Гаусса')
-	plot_figure(3, t, x0, filtfilt(B, 1, x1), filtfilt(B, 1, x2), 'Фильтр Баттерворта')
+  plot_figure(2, t, x0, filtfilt(G, 1, x1), filtfilt(G, 1, x2), 'Фильтр Гаусса Гауссовы помехи')
+	plot_figure(3, t, x0, filtfilt(B, 1, x1), filtfilt(B, 1, x2), 'Фильтр Баттерворта Гауссовы помехи')
+
+  plot_figure(4, t, x0, filtfilt(G, 1, x2), filtfilt(G, 1, x2), 'Фильтр Гаусса Импульсные')
+	plot_figure(5, t, x0, filtfilt(B, 1, x2), filtfilt(B, 1, x2), 'Фильтр Баттерворта Импульсные')
 end
 
 function plot_figure(i, t, x0, x1, x2, tit)
-	subplot(3, 1, i);
-	plot(t, x0, t, x1, t, x2);
+	subplot(5, 1, i);
+	plot(t, x0, t, x1);
 	title(tit);
-	legend('Без помех', 'Гауссовы помехи', 'Импульсные помехи');
+	legend('Без помех', 'Гауссовы помехи');
 	% print(strcat('plot04_', num2str(i)), '-dpng');
 end
 
